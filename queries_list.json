@@ -1,0 +1,26 @@
+{
+    "Competitor1": {
+        "search": "competitor1",
+        "usernames": {
+            "Twitter": "competitor1_twitter",
+            "Reddit": "competitor1_reddit",
+            "HN": "competitor1_hn"
+        }
+    },
+    "Competitor2": {
+        "search": "competitor2",
+        "usernames": {
+            "Twitter": "competitor2_twitter",
+            "Reddit": "competitor2_reddit",
+            "HN": "competitor2_hn"
+        }
+    },
+    "Competitor3": {
+        "search": "competitor3",
+        "usernames": {
+            "Twitter": "competitor3_twitter",
+            "Reddit": "competitor3_reddit",
+            "HN": "competitor3_hn"
+        }
+    }
+}
