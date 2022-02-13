@@ -1,0 +1,6 @@
+nest_asyncio==1.5.4
+psaw==0.0.12
+pandas==1.4.1
+requests==2.27.1
+python-dotenv==0.19.2
+twint==2.1.20
