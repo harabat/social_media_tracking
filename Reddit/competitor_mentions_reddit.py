@@ -2,11 +2,12 @@
 
 import csv
 from datetime import datetime, timedelta
+import dotenv
 import json
+import os
 import pandas as pd
 from psaw import PushshiftAPI
 import requests
-import coda_credentials as coda
 
 
 def psaw_to_data():
@@ -74,24 +75,26 @@ def psaw_to_data():
 
 
 def reddit_to_coda():
+    dotenv.load_dotenv(dotenv.find_dotenv())
+
     data = psaw_to_data()
 
     if data["submissions"].empty and data["comments"].empty:
         return
 
-    headers = {"Authorization": coda.TOKEN}
+    headers = {"Authorization": os.environ["CODA_TOKEN"]}
 
-    uri = f"https://coda.io/apis/v1/docs/{coda.DOC}/tables/{coda.TABLE}/rows"
+    uri = f"https://coda.io/apis/v1/docs/{os.environ['CODA_DOC']}/tables/{os.environ['CODA_TABLE']}/rows"
 
     columns = {
-        "Competitor": "coda.COL_1",
-        "Social media": "coda.COL_2",
-        "Subreddit/hashtags": "coda.COL_3",
-        "Content": "coda.COL_4",
-        "Author": "coda.COL_5",
-        "Metrics": "coda.COL_6",
-        "Link": "coda.COL_7",
-        "Date": "coda.COL_8",
+        "Competitor": os.environ["CODA_COL_1"],
+        "Social media": os.environ["CODA_COL_2"],
+        "Subreddit/hashtags": os.environ["CODA_COL_3"],
+        "Content": os.environ["CODA_COL_4"],
+        "Author": os.environ["CODA_COL_5"],
+        "Metrics": os.environ["CODA_COL_6"],
+        "Link": os.environ["CODA_COL_7"],
+        "Date": os.environ["CODA_COL_8"],
     }
 
     rows = [

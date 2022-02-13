@@ -4,7 +4,7 @@
 
 - lists relevant search keywords and usernames for various competitors (or entities)
 
-## `coda_credentials.py`
+## `.env`
 
 - holds tokens and UUID required to access the Coda REST API
 
